@@ -40,8 +40,6 @@ function displayResult(lyrics) {
                     </div>
                 </div>
                 `;
-        // // document.querySelector('.lyrics-name').innerText = lyric.title;
-        // // document.querySelector('.album-name').innerText = lyric.album.title
         searchResult.innerHTML += output;
     }
 }
