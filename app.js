@@ -1,9 +1,9 @@
 const searchResult = document.querySelector('.search-result');
 const api = {
-    baseUrl: "https://api.lyrics.ovh/"
+    baseUrl: "https://api.lyrics.ovh"
 }
 document.querySelector('.search-input').addEventListener('keypress', getQueryKeyPress);
-document.querySelector('.search-input').addEventListener('click', getQueryClicked);
+document.querySelector('.search-btn').addEventListener('click', getQueryClicked);
 
 function getQueryClicked() {
     const searchInput = document.querySelector('.search-input').value;
@@ -24,8 +24,6 @@ function getQueryKeyPress(e) {
 
 
 function displayResult(lyrics) {
-    // console.log(lyric);
-    console.log(lyrics.data);
     searchResult.innerHTML = '';
     for (let i = 0; i < 10; i++) {
         const lyric = lyrics.data[i];
@@ -64,7 +62,6 @@ function getLyrics(artistName, songTitle) {
     fetch(`${api.baseUrl}/v1/${artistName}/${songTitle}/`)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             if (data.lyrics == '') {
                 searchResult.innerHTML = `
                             <h2 class="text-success text-center lyric-title mb-4">Lyrics not found, please try again later</h2>
